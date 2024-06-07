@@ -1,28 +1,28 @@
-From 0c5e8eefd8ee95fdd47c127da318b6941b10b6de Mon Sep 17 00:00:00 2001
-From: Archana Shinde1 <archana.shinde2504@gmail.com>
-Date: Wed, 10 Jan 2024 11:32:33 +0000
-Subject: [PATCH] Changes of flatbuffers v23.1.21
+From 2ae190552ebf3f81cb12a3499478c852018bf149 Mon Sep 17 00:00:00 2001
+From: ArchanaShinde1 <Archana.Shinde1@ibm.com>
+Date: Wed, 5 Jun 2024 07:29:19 +0000
+Subject: [PATCH] Changes for flatbuffer v23.1.21
 
 ---
- .../acceleration/configuration/configuration_generated.h    | 4 ++--
- .../delegates/gpu/cl/compiled_program_cache_generated.h     | 4 ++--
- tensorflow/lite/delegates/gpu/cl/serialization_generated.h  | 4 ++--
- tensorflow/lite/delegates/gpu/common/gpu_model_generated.h  | 4 ++--
- .../gpu/common/task/serialization_base_generated.h          | 4 ++--
- .../acceleration/configuration/configuration_generated.h    | 4 ++--
- tensorflow/lite/schema/conversion_metadata_generated.h      | 4 ++--
- tensorflow/lite/schema/schema_generated.h                   | 4 ++--
- tensorflow/lite/tools/cmake/modules/flatbuffers.cmake       | 2 +-
- tensorflow/tools/ci_build/release/requirements_common.txt   | 2 +-
- tensorflow/tools/pip_package/BUILD                          | 2 +-
- tensorflow/tools/pip_package/setup.py                       | 2 +-
- .../tools/tf_sig_build_dockerfiles/devel.requirements.txt   | 2 +-
- third_party/flatbuffers/flatbuffers.BUILD                   | 5 +++--
- third_party/flatbuffers/workspace.bzl                       | 6 +++---
- 15 files changed, 27 insertions(+), 26 deletions(-)
+ .../acceleration/configuration/configuration_generated.h     | 4 ++--
+ .../lite/delegates/gpu/cl/compiled_program_cache_generated.h | 4 ++--
+ tensorflow/lite/delegates/gpu/cl/serialization_generated.h   | 4 ++--
+ tensorflow/lite/delegates/gpu/common/gpu_model_generated.h   | 4 ++--
+ .../delegates/gpu/common/task/serialization_base_generated.h | 4 ++--
+ .../acceleration/configuration/configuration_generated.h     | 4 ++--
+ tensorflow/lite/schema/conversion_metadata_generated.h       | 4 ++--
+ tensorflow/lite/schema/schema_generated.h                    | 4 ++--
+ tensorflow/lite/tools/cmake/modules/flatbuffers.cmake        | 2 +-
+ tensorflow/tools/ci_build/release/requirements_common.txt    | 2 +-
+ tensorflow/tools/pip_package/BUILD                           | 2 +-
+ tensorflow/tools/pip_package/setup.py                        | 2 +-
+ .../tools/tf_sig_build_dockerfiles/devel.requirements.txt    | 2 +-
+ third_party/flatbuffers/flatbuffers.BUILD                    | 5 +++--
+ third_party/flatbuffers/workspace.bzl                        | 4 ++--
+ 15 files changed, 26 insertions(+), 25 deletions(-)
 
 diff --git a/tensorflow/lite/acceleration/configuration/configuration_generated.h b/tensorflow/lite/acceleration/configuration/configuration_generated.h
-index 3547e8ca0d1..fe6c8eacd6a 100644
+index 675dfc9d8c9..a3498ed0e03 100644
 --- a/tensorflow/lite/acceleration/configuration/configuration_generated.h
 +++ b/tensorflow/lite/acceleration/configuration/configuration_generated.h
 @@ -23,8 +23,8 @@ limitations under the License.
@@ -127,7 +127,7 @@ index 2a059f65032..20dfff1671b 100755
  
  namespace tflite {
 diff --git a/tensorflow/lite/schema/schema_generated.h b/tensorflow/lite/schema/schema_generated.h
-index 2e0e81238ed..03045d4c160 100755
+index b416555e837..0a92ca481eb 100755
 --- a/tensorflow/lite/schema/schema_generated.h
 +++ b/tensorflow/lite/schema/schema_generated.h
 @@ -23,8 +23,8 @@ limitations under the License.
@@ -155,7 +155,7 @@ index 45d5b7f2249..f1ed4fb1748 100644
    GIT_PROGRESS TRUE
    SOURCE_DIR "${CMAKE_BINARY_DIR}/flatbuffers"
 diff --git a/tensorflow/tools/ci_build/release/requirements_common.txt b/tensorflow/tools/ci_build/release/requirements_common.txt
-index e9a79b120b5..0ba90cfd0bd 100644
+index f1ce7485a3d..f24eb16ccbc 100644
 --- a/tensorflow/tools/ci_build/release/requirements_common.txt
 +++ b/tensorflow/tools/ci_build/release/requirements_common.txt
 @@ -3,7 +3,7 @@
@@ -165,26 +165,26 @@ index e9a79b120b5..0ba90cfd0bd 100644
 -flatbuffers ~= 23.5.26
 +flatbuffers ~= 23.1.21
  google_pasta ~= 0.2
- h5py ~= 3.8.0  # Earliest version for Python 3.11
- ml_dtypes ~= 0.2
+ h5py ~= 3.10.0  # Earliest version for Python 3.12
+ ml_dtypes ~= 0.3.1
 diff --git a/tensorflow/tools/pip_package/BUILD b/tensorflow/tools/pip_package/BUILD
-index d623a1bda29..d0c282c9725 100644
+index 91be8d17531..d5b6b7c7b78 100644
 --- a/tensorflow/tools/pip_package/BUILD
 +++ b/tensorflow/tools/pip_package/BUILD
-@@ -208,7 +208,7 @@ filegroup(
+@@ -211,7 +211,7 @@ filegroup(
          "@com_google_protobuf//:LICENSE",
          "@curl//:COPYING",
-         "@dill_archive//:LICENSE",
+         "@ducc//:LICENSE",
 -        "@flatbuffers//:LICENSE",
 +        "@flatbuffers//:LICENSE.txt",
-         "@gast_archive//:PKG-INFO",
          "@gemmlowp//:LICENSE",
          "@libjpeg_turbo//:LICENSE.md",
+         "@llvm-project//llvm:LICENSE.TXT",
 diff --git a/tensorflow/tools/pip_package/setup.py b/tensorflow/tools/pip_package/setup.py
-index fdb718d1628..cb18d57a22e 100644
+index cdec9d3a783..f10e19a0e8a 100644
 --- a/tensorflow/tools/pip_package/setup.py
 +++ b/tensorflow/tools/pip_package/setup.py
-@@ -84,7 +84,7 @@ def standard_or_nightly(standard, nightly):
+@@ -85,7 +85,7 @@ def standard_or_nightly(standard, nightly):
  REQUIRED_PACKAGES = [
      'absl-py >= 1.0.0',
      'astunparse >= 1.6.0',
@@ -192,9 +192,9 @@ index fdb718d1628..cb18d57a22e 100644
 +    'flatbuffers >= 23.1.21',
      'gast >=0.2.1,!=0.5.0,!=0.5.1,!=0.5.2',
      'google_pasta >= 0.1.1',
-     'h5py >= 2.9.0',
+     'h5py >= 3.10.0',
 diff --git a/tensorflow/tools/tf_sig_build_dockerfiles/devel.requirements.txt b/tensorflow/tools/tf_sig_build_dockerfiles/devel.requirements.txt
-index 9e12049cc6b..6a10353385e 100644
+index 480cdc54385..766339fcce2 100644
 --- a/tensorflow/tools/tf_sig_build_dockerfiles/devel.requirements.txt
 +++ b/tensorflow/tools/tf_sig_build_dockerfiles/devel.requirements.txt
 @@ -6,7 +6,7 @@
@@ -204,10 +204,10 @@ index 9e12049cc6b..6a10353385e 100644
 -flatbuffers ~= 23.5.26
 +flatbuffers ~= 23.1.21
  google_pasta ~= 0.2
- h5py ~= 3.8.0 # Earliest version for Python 3.11
- ml_dtypes ~= 0.2
+ h5py ~= 3.10.0 # Earliest version for Python 3.12
+ ml_dtypes ~= 0.3.1
 diff --git a/third_party/flatbuffers/flatbuffers.BUILD b/third_party/flatbuffers/flatbuffers.BUILD
-index 67ae952677c..2905833ad15 100644
+index ef738212657..e88169ce294 100644
 --- a/third_party/flatbuffers/flatbuffers.BUILD
 +++ b/third_party/flatbuffers/flatbuffers.BUILD
 @@ -5,7 +5,7 @@ package(default_visibility = ["//visibility:public"])
@@ -238,22 +238,22 @@ index 67ae952677c..2905833ad15 100644
          "include/flatbuffers/flexbuffers.h",
          "include/flatbuffers/grpc.h",
 diff --git a/third_party/flatbuffers/workspace.bzl b/third_party/flatbuffers/workspace.bzl
-index 1aa9b2ff2d0..2fa19ab1a96 100644
+index a0b943d7a94..2a534526c2a 100644
 --- a/third_party/flatbuffers/workspace.bzl
 +++ b/third_party/flatbuffers/workspace.bzl
-@@ -5,9 +5,9 @@ load("//third_party:repo.bzl", "tf_http_archive", "tf_mirror_urls")
+@@ -5,10 +5,10 @@ load("//third_party:repo.bzl", "tf_http_archive", "tf_mirror_urls")
+ # _FLATBUFFERS_GIT_COMMIT / _FLATBUFFERS_SHA256 were added due to an urgent change being made to
+ # Flatbuffers that needed to be updated in order for Flatbuffers/TfLite be compatible with Android
+ # API level >= 23. They can be removed next flatbuffers offical release / update.
+-_FLATBUFFERS_GIT_COMMIT = "7d6d99c6befa635780a4e944d37ebfd58e68a108"
++_FLATBUFFERS_GIT_COMMIT = "ee848a02e17a94edaacd1dd95a1664b59c6f06b2"
+ 
+ # curl -L https://github.com/google/flatbuffers/archive/<_FLATBUFFERS_GIT_COMMIT>.tar.gz | shasum -a 256
+-_FLATBUFFERS_SHA256 = "d27761f6b2fb1017ec00ed317a7b98cb7aed86b81d90528b498fb17ec13579a1"
++_FLATBUFFERS_SHA256 = "d84cb25686514348e615163b458ae0767001b24b42325f426fd56406fd384238"
+ 
  def repo():
      tf_http_archive(
-         name = "flatbuffers",
--        strip_prefix = "flatbuffers-23.5.26",
--        sha256 = "1cce06b17cddd896b6d73cc047e36a254fb8df4d7ea18a46acf16c4c0cd3f3f3",
--        urls = tf_mirror_urls("https://github.com/google/flatbuffers/archive/v23.5.26.tar.gz"),
-+        strip_prefix = "flatbuffers-23.1.21",
-+        sha256 = "d84cb25686514348e615163b458ae0767001b24b42325f426fd56406fd384238",
-+        urls = tf_mirror_urls("https://github.com/google/flatbuffers/archive/v23.1.21.tar.gz"),
-         build_file = "//third_party/flatbuffers:flatbuffers.BUILD",
-         system_build_file = "//third_party/flatbuffers:BUILD.system",
-         link_files = {
 -- 
 2.40.1
 

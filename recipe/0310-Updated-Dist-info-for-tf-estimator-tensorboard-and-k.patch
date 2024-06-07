@@ -1,24 +1,29 @@
-From 22955a8d8a2316da3c7cc884c332e48ad11dea27 Mon Sep 17 00:00:00 2001
-From: ArchanaShinde1 <archana.shinde2504@gmail.com>
-Date: Thu, 7 Dec 2023 13:29:54 +0000
-Subject: [PATCH] Update
+From c0ef7fb7c234f988eaafa6db3b0d0c5df0348bde Mon Sep 17 00:00:00 2001
+From: ArchanaShinde1 <Archana.Shinde1@ibm.com>
+Date: Wed, 5 Jun 2024 11:44:25 +0000
+Subject: [PATCH] Updated-Dist-info-for-tf-estimator-tensorboard-and-k
 
 ---
- tensorflow/tools/pip_package/setup.py | 1 -
- 1 file changed, 1 deletion(-)
+ tensorflow/tools/pip_package/setup.py | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
 diff --git a/tensorflow/tools/pip_package/setup.py b/tensorflow/tools/pip_package/setup.py
-index 2475ee5d7ce..c39de99ed3e 100644
+index cdec9d3a783..4f9a43bdaa3 100644
 --- a/tensorflow/tools/pip_package/setup.py
 +++ b/tensorflow/tools/pip_package/setup.py
-@@ -88,7 +88,6 @@ REQUIRED_PACKAGES = [
+@@ -85,11 +85,10 @@ def standard_or_nightly(standard, nightly):
+ REQUIRED_PACKAGES = [
+     'absl-py >= 1.0.0',
+     'astunparse >= 1.6.0',
+-    'flatbuffers >= 23.5.26',
++    'flatbuffers >= 23.1.21',
      'gast >=0.2.1,!=0.5.0,!=0.5.1,!=0.5.2',
      'google_pasta >= 0.1.1',
-     'h5py >= 2.9.0',
+     'h5py >= 3.10.0',
 -    'libclang >= 13.0.0',
-     'ml_dtypes == 0.2.0',
-     'numpy >= 1.23.5',
-     'opt_einsum >= 2.3.2',
+     'ml_dtypes ~= 0.3.1',
+     # TODO(b/304751256): Adjust the numpy pin to a single version, when ready
+     'numpy >= 1.23.5, < 2.0.0 ; python_version <= "3.11"',
 -- 
 2.40.1
 

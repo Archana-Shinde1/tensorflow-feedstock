@@ -1,19 +1,19 @@
-From c9a854478a8f0cb2418ba43d7ce9581b0990a4b7 Mon Sep 17 00:00:00 2001
-From: Nishidha Panpaliya <npanpa23@in.ibm.com>
-Date: Fri, 2 Apr 2021 08:33:00 +0000
-Subject: [PATCH] Pip package build additions
+From 01327266f953fd4d4b11d510a7354da50b01c2a8 Mon Sep 17 00:00:00 2001
+From: ArchanaShinde1 <Archana.Shinde1@ibm.com>
+Date: Wed, 5 Jun 2024 06:50:23 +0000
+Subject: [PATCH] include cc in pip package
 
 ---
  tensorflow/tools/pip_package/BUILD    | 7 +++++++
- tensorflow/tools/pip_package/setup.py | 4 +++-
- 2 files changed, 10 insertions(+), 1 deletion(-)
+ tensorflow/tools/pip_package/setup.py | 2 ++
+ 2 files changed, 9 insertions(+)
 
 diff --git a/tensorflow/tools/pip_package/BUILD b/tensorflow/tools/pip_package/BUILD
-index c326557..8392301 100644
+index 91be8d17531..0241765d3e2 100644
 --- a/tensorflow/tools/pip_package/BUILD
 +++ b/tensorflow/tools/pip_package/BUILD
-@@ -103,6 +103,13 @@ COMMON_PIP_DEPS = [
-     "//tensorflow/lite/python/testdata:interpreter_test_data",
+@@ -114,6 +114,13 @@ COMMON_PIP_DEPS = [
+     "//tensorflow/dtensor/python/tests:test_util",
      "//tensorflow/lite/python:tflite_convert",
      "//tensorflow/lite/toco/python:toco_from_protos",
 +    "//tensorflow/c:headers",
@@ -27,20 +27,18 @@ index c326557..8392301 100644
      "//tensorflow/python/autograph/core:test_lib",
      "//tensorflow/python/autograph/impl/testing:pybind_for_testing",
 diff --git a/tensorflow/tools/pip_package/setup.py b/tensorflow/tools/pip_package/setup.py
-index 434c568..2685169 100644
+index cdec9d3a783..2a27e3f424a 100644
 --- a/tensorflow/tools/pip_package/setup.py
 +++ b/tensorflow/tools/pip_package/setup.py
-@@ -297,7 +297,9 @@ headers = (
-     list(find_files('*', 'third_party/eigen3')) +
-     list(find_files('*.h', 'tensorflow/include/external/com_google_absl')) +
-     list(find_files('*.inc', 'tensorflow/include/external/com_google_absl')) +
--    list(find_files('*', 'tensorflow/include/external/eigen_archive')))
-+    list(find_files('*', 'tensorflow/include/external/eigen_archive')) +
-+    list(find_files('*', 'tensorflow/c')) +
-+    list(find_files('*', 'tensorflow/cc')))
+@@ -384,6 +384,8 @@ headers = (
+     + list(find_files('*.h', 'tensorflow/include/external/ducc/google'))
+     + list(find_files('*', 'tensorflow/include/external/eigen_archive'))
+     + list(find_files('*.h', 'tensorflow/include/external/ml_dtypes'))
++    + list(find_files('*', 'tensorflow/c'))
++    + list(find_files('*', 'tensorflow/cc'))
+ )
  
- setup(
-     name=project_name,
+ # Quite a lot of setup() options are different if this is a collaborator package
 -- 
-1.8.3.1
+2.40.1
 
